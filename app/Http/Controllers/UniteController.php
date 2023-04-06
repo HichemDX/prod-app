@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\produit;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\unite;
-use App\Models\Produit;
+use App\Models\produits;
 
 class UniteController extends Controller
 {
@@ -20,7 +21,6 @@ class UniteController extends Controller
     { 
         return View('unite.index',[
           'unite' => unite::all(),
-          'produit' => Produit::all(),
 
         ]);
       
@@ -32,7 +32,12 @@ class UniteController extends Controller
      */
     public function create()
     {
-        return View('unite.create');
+        return View('unite.create',
+      [
+        'produit' => produit::all(),
+
+      ]);
+        
     }
 
     /**
@@ -56,7 +61,8 @@ class UniteController extends Controller
       $index = unite::findOrFail($id);
     return view(
       'unite.show',
-      ['unite' => $index]
+      ['unite' => $index],
+      ['produit' => $index]
     );
     }
 

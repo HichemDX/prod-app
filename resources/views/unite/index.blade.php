@@ -17,8 +17,7 @@
     
       @foreach($unite as $value)
       <a href="{{route('unite.show',['unite'=>$value['id'] ])}}" class="bg-red-500 p-4 w-full rounded-2xl hover:bg-blue-50">
-      <li>{{ $value['id'] }} {{ $value['name'] }} {{ $value['postion'] }} {{ $value['produit'] }} </li>
-
+      <li>{{ $value['id'] }} {{ $value['name'] }} {{ $value['position'] }}  </li>
       </a>
   @endforeach
   </ul>
